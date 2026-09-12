@@ -1,0 +1,48 @@
+.editor-container {
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 32px;
+  background-color: #ffffff;
+  min-height: 80vh;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.blocks-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.block-item {
+  position: relative;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.block-item:hover {
+  background-color: #f9fafb;
+  border-color: #e5e7eb;
+}
+
+.block-input-heading {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111827;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.block-input-text {
+  width: 100%;
+  font-size: 1rem;
+  color: #374151;
+  background: transparent;
+  border: none;
+  outline: none;
+}
