@@ -37,12 +37,12 @@ export const BlockEditor: React.FC = () => {
       if (isSynced && yarray.length === 0) {
         yarray.insert(0, [
           {
-            id: Math.random().toString(36).substr(2, 9),
+            id: crypto.randomUUID(),
             type: "heading",
             content: "Technical Specification Document",
           },
           {
-            id: Math.random().toString(36).substr(2, 9),
+            id: crypto.randomUUID(),
             type: "paragraph",
             content: "Start typing your collaborative notes here...",
           },
@@ -73,7 +73,7 @@ export const BlockEditor: React.FC = () => {
       e.preventDefault();
       const yarray = ydocRef.current.getArray<BlockNode>("syncdoc-blocks");
       const newBlock: BlockNode = {
-        id: Math.random().toString(36).substr(2, 9),
+        id: crypto.randomUUID(),
         type: "paragraph",
         content: "",
       };
