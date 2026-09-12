@@ -37,12 +37,12 @@ export const BlockEditor: React.FC = () => {
       if (isSynced && yarray.length === 0) {
         yarray.insert(0, [
           {
-            id: "1",
+            id: Math.random().toString(36).substr(2, 9),
             type: "heading",
             content: "Technical Specification Document",
           },
           {
-            id: "2",
+            id: Math.random().toString(36).substr(2, 9),
             type: "paragraph",
             content: "Start typing your collaborative notes here...",
           },
@@ -68,6 +68,19 @@ export const BlockEditor: React.FC = () => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
+    if (e.key === "Enter" && ydocRef.current) {
+      e.preventDefault();
+      const yarray = ydocRef.current.getArray<BlockNode>("syncdoc-blocks");
+      const newBlock: BlockNode = {
+        id: Math.random().toString(36).substr(2, 9),
+        type: "paragraph",
+        content: "",
+      };
+      yarray.insert(index + 1, [newBlock]);
+    }
+  };
+
   return (
     <div className="editor-container">
       <div className="blocks-stack">
@@ -78,6 +91,7 @@ export const BlockEditor: React.FC = () => {
                 type="text"
                 value={block.content}
                 onChange={(e) => updateBlockContent(index, e.target.value)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
                 className="block-input-heading"
               />
             ) : (
@@ -85,6 +99,7 @@ export const BlockEditor: React.FC = () => {
                 type="text"
                 value={block.content}
                 onChange={(e) => updateBlockContent(index, e.target.value)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
                 className="block-input-text"
               />
             )}

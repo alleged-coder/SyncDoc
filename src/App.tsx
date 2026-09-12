@@ -1,4 +1,3 @@
-import React from "react";
 import { EditorNavbar } from "./components/EditorNavbar";
 import { BlockEditor } from "./components/BlockEditor";
 
