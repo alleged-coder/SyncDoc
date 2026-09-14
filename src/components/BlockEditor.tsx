@@ -139,7 +139,7 @@ export const BlockEditor: React.FC = () => {
                 onChange={(e) => updateBlockContent(index, e.target.value)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 className="block-input-text"
-                placeholder="Type your notes here..."
+                placeholder=""
               />
             )}
           </div>
